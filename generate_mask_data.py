@@ -36,7 +36,7 @@ def generate_masks(image_path, json_path, save_dir):
             points = np.array(list(zip(x, y)))
             cv2.fillPoly(mask, [points], color=(i + 1))
             
-        cv2.imwrite(f"{save_dir}/masks/{name}.png", mask)
+        np.save(f"{save_dir}/masks/{name}.npy", mask)
         cv2.imwrite(f"{save_dir}/images/{name}.png", image)
 
 if __name__ == "__main__":
